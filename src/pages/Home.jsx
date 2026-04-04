@@ -1,4 +1,4 @@
-﻿import React from 'react'
+﻿import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import {
   Printer,
@@ -14,6 +14,7 @@ import {
   Shield,
   Zap,
   Camera,
+  ChevronDown,
 } from 'lucide-react'
 
 const featuredServices = [
@@ -50,10 +51,10 @@ const featuredServices = [
 ]
 
 const stats = [
-  { number: '10+', label: 'Years Experience' },
-  { number: '5000+', label: 'Happy Customers' },
-  { number: '10+', label: 'Services Offered' },
-  { number: '100%', label: 'Quality Assured' },
+  { target: 10, suffix: '+', label: 'Years Experience' },
+  { target: 5000, suffix: '+', label: 'Happy Customers' },
+  { target: 10, suffix: '+', label: 'Services Offered' },
+  { target: 100, suffix: '%', label: 'Quality Assured' },
 ]
 
 const whyUs = [
@@ -116,6 +117,33 @@ const pricingRates = [
 ]
 
 const Home = () => {
+  const [counts, setCounts] = useState(stats.map(() => 0))
+
+  useEffect(() => {
+    const duration = 1500
+    const startTime = performance.now()
+    let animationId = 0
+
+    const animate = (currentTime) => {
+      const elapsed = Math.min(currentTime - startTime, duration)
+      const progress = elapsed / duration
+
+      setCounts(
+        stats.map((stat) => {
+          const value = Math.round(stat.target * progress)
+          return value > stat.target ? stat.target : value
+        }),
+      )
+
+      if (elapsed < duration) {
+        animationId = requestAnimationFrame(animate)
+      }
+    }
+
+    animationId = requestAnimationFrame(animate)
+    return () => cancelAnimationFrame(animationId)
+  }, [])
+
   return (
     <div className="min-h-screen bg-transparent">
       {/* ───────────── HERO ───────────── */}
@@ -123,7 +151,7 @@ const Home = () => {
         className="relative overflow-hidden bg-cover bg-center"
         style={{
           backgroundImage:
-            "url('https://www.studentsxerox.com/images/01.webp')",
+            "url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=80')",
         }}
       >
         <div className="absolute inset-0 bg-black/80" />
@@ -185,16 +213,27 @@ const Home = () => {
             </div>
           </div>
         </div>
+
+        {/* Scroll Down Indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <button
+            onClick={() => document.getElementById('services-preview')?.scrollIntoView({ behavior: 'smooth' })}
+            className="flex items-center justify-center w-12 h-12 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all duration-300"
+            aria-label="Scroll to services"
+          >
+            <ChevronDown size={20} />
+          </button>
+        </div>
       </section>
 
       {/* ───────────── STATS ───────────── */}
-      <section className="py-14 border-y border-purple-900/20 bg-black/40">
+      <section className="py-14 border-y border-purple-900/20 bg-gradient-to-b from-[#0b061c] via-[#0f081a] to-[#08040d]">
         <div className="max-w-5xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat, i) => (
               <div key={i} className="text-center group">
                 <p className="text-4xl font-black bg-gradient-to-r from-purple-400 to-violet-400 bg-clip-text text-transparent mb-1">
-                  {stat.number}
+                  {counts[i].toLocaleString()}{stat.suffix}
                 </p>
                 <p className="text-gray-500 text-sm">{stat.label}</p>
               </div>
@@ -204,7 +243,7 @@ const Home = () => {
       </section>
 
       {/* ───────────── SERVICES PREVIEW ───────────── */}
-      <section className="py-24 px-4">
+      <section id="services-preview" className="py-24 px-4 bg-[radial-gradient(circle_at_top,_rgba(124,58,237,0.08),transparent_35%)]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <p className="text-purple-500 text-xs font-semibold uppercase tracking-[0.2em] mb-3">
@@ -351,7 +390,7 @@ const Home = () => {
       </section>
 
       {/* ───────────── WHY CHOOSE US ───────────── */}
-      <section className="py-24 px-4 bg-black/30">
+      <section className="py-24 px-4 bg-gradient-to-b from-[#09080f] via-[#120a1f] to-[#06040d]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <p className="text-purple-500 text-xs font-semibold uppercase tracking-[0.2em] mb-3">
@@ -404,15 +443,15 @@ const Home = () => {
       </section>
 
       {/* ───────────── CTA ───────────── */}
-      <section className="py-24 px-4">
+      <section className="py-24 px-4 bg-gradient-to-r from-[#09101f] via-[#121b2d] to-[#080f18]">
         <div className="max-w-4xl mx-auto">
           <div className="relative rounded-3xl overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-violet-900 to-purple-950" />
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950" />
             <div
               className="absolute inset-0 opacity-[0.06]"
               style={{
                 backgroundImage:
-                  'radial-gradient(circle, white 1px, transparent 1px)',
+                  'radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px)',
                 backgroundSize: '30px 30px',
               }}
             />
@@ -422,7 +461,7 @@ const Home = () => {
               <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">
                 Ready to Get Started?
               </h2>
-              <p className="text-purple-200 text-sm sm:text-base mb-10 max-w-xl mx-auto leading-relaxed">
+              <p className="text-slate-300 text-sm sm:text-base mb-10 max-w-xl mx-auto leading-relaxed">
                 Send us an enquiry or message us on WhatsApp — we'll get back to
                 you instantly with pricing and details.
               </p>

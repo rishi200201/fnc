@@ -10,13 +10,12 @@ function App() {
   return (
     <div className="relative min-h-screen text-white overflow-hidden">
       <div
-        className="pointer-events-none absolute inset-0 bg-cover bg-center"
+        className="pointer-events-none absolute inset-0 bg-cover bg-center lg:bg-fixed"
         style={{
           backgroundImage:
             "url('https://www.studentsxerox.com/images/01.webp')",
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center center',
-          backgroundAttachment: 'fixed',
         }}
       />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#08030f]/90 via-[#0d0530]/80 to-[#05030c]/95" />

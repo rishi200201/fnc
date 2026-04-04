@@ -103,7 +103,7 @@ const Services = () => {
         className="relative overflow-hidden bg-cover bg-center"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1580910051073-5791c3d07532?auto=format&fit=crop&w=1600&q=80')",
+            "url('https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1600&q=80')",
         }}
       >
         <div className="absolute inset-0 bg-black/80" />

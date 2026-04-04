@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "npx vite build",
     "preview": "vite preview",
-    "postinstall": "chmod +x node_modules/.bin/vite"
+    "postinstall": "node -e \"const fs=require('fs'); const path='./node_modules/.bin/vite'; if (process.platform !== 'win32' && fs.existsSync(path)) fs.chmodSync(path, 0o755)\""
   },
   "dependencies": {
     "react": "^18.2.0",

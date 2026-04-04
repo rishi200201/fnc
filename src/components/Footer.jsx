@@ -107,6 +107,9 @@ const Footer = () => {
           <p className="text-gray-700 text-xs">
             © {year} Friend's Xerox Corner. All rights reserved.
           </p>
+          <p className="text-gray-700 text-xs">
+            Developed by Rishi Kumar
+          </p>
           <p className="text-gray-800 text-xs">
             41, Anna Street, Kanagam, Taramani, Chennai – 600113
           </p>
