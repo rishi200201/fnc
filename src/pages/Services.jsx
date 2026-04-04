@@ -10,6 +10,7 @@ import {
   MonitorSmartphone,
   ScanLine,
   Camera,
+  Printer,
   ArrowRight,
   MessageCircle,
 } from 'lucide-react'
@@ -96,26 +97,72 @@ const services = [
 
 const Services = () => {
   return (
-    <div className="min-h-screen bg-[#0a0a0f] pt-16">
+    <div className="min-h-screen bg-transparent pt-16">
       {/* ───────────── HERO ───────────── */}
-      <section className="relative py-20 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/10 to-transparent" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-purple-800/15 rounded-full blur-[100px]" />
-
-        <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <p className="text-purple-500 text-xs font-semibold uppercase tracking-[0.2em] mb-3">
-            What We Do
-          </p>
-          <h1 className="text-4xl sm:text-5xl font-black text-white mb-5 leading-tight">
-            Our{' '}
-            <span className="bg-gradient-to-r from-purple-400 to-violet-400 bg-clip-text text-transparent">
-              Services
-            </span>
-          </h1>
-          <p className="text-gray-500 text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
-            A comprehensive range of print and document services tailored for
-            students, professionals, and businesses in Chennai.
-          </p>
+      <section
+        className="relative overflow-hidden bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1580910051073-5791c3d07532?auto=format&fit=crop&w=1600&q=80')",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#5b21b6]/10 to-black/95" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(168,85,247,0.18),_transparent_30%)]" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 py-24 lg:py-32">
+          <div className="grid gap-10 lg:grid-cols-[1.2fr_0.9fr] items-center">
+            <div className="space-y-6 text-white">
+              <p className="text-purple-500 text-xs font-semibold uppercase tracking-[0.2em] mb-3">
+                What We Do
+              </p>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight">
+                Professional printing and finishing services for students and businesses.
+              </h1>
+              <p className="max-w-2xl text-gray-300 text-base sm:text-lg leading-relaxed">
+                From photocopying and colour printouts to lamination, binding, and online support — get everything done accurately and affordably.
+              </p>
+              <blockquote className="border-l-4 border-purple-400 pl-4 italic text-purple-200 text-sm mb-6">
+                "Quality printing turns ideas into reality."
+              </blockquote>
+              <div className="flex flex-col sm:flex-row items-center gap-4">
+                <Link
+                  to="/enquiry"
+                  className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-violet-600 text-white font-bold rounded-xl shadow-2xl shadow-purple-900/50 hover:from-purple-500 hover:to-violet-500 transition-all duration-300 hover:scale-105 hover:shadow-purple-700/60 overflow-hidden"
+                >
+                  <span className="absolute inset-0 bg-gradient-to-r from-purple-500 to-violet-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  <Printer size={17} className="relative z-10" />
+                  <span className="relative z-10">Enquire Now</span>
+                  <ArrowRight size={17} className="relative z-10 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <a
+                  href="https://wa.me/918148259753"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 border border-white/10 text-white rounded-xl hover:bg-white/15 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-green-500/20"
+                >
+                  <MessageCircle size={17} className="text-green-400 group-hover:animate-bounce" />
+                  <span>WhatsApp</span>
+                </a>
+              </div>
+            </div>
+            <div className="rounded-[2rem] border border-white/10 bg-black/60 p-8 shadow-2xl shadow-black/40 backdrop-blur-xl hover:bg-black/70 transition-all duration-300">
+              <p className="text-sm uppercase tracking-[0.3em] text-purple-300 mb-5">Service spotlight</p>
+              <div className="space-y-4">
+                <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 hover:bg-white/[0.08] transition-all duration-300 cursor-pointer">
+                  <p className="text-gray-400 text-sm">Large format printing</p>
+                  <p className="mt-2 text-white text-lg font-semibold">Posters, plans, banners</p>
+                </div>
+                <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 hover:bg-white/[0.08] transition-all duration-300 cursor-pointer">
+                  <p className="text-gray-400 text-sm">Fast binding</p>
+                  <p className="mt-2 text-white text-lg font-semibold">Spiral, soft, hard covers</p>
+                </div>
+                <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 hover:bg-white/[0.08] transition-all duration-300 cursor-pointer">
+                  <p className="text-gray-400 text-sm">Document finishing</p>
+                  <p className="mt-2 text-white text-lg font-semibold">Lamination, scanning, copies</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -166,10 +213,10 @@ const Services = () => {
               return (
                 <div
                   key={i}
-                  className="group p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:border-purple-600/40 hover:bg-purple-950/20 transition-all duration-300"
+                  className="group p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:border-purple-600/40 hover:bg-purple-950/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-900/20"
                 >
                   {/* Icon */}
-                  <div className="w-12 h-12 rounded-xl bg-purple-600/15 border border-purple-600/25 flex items-center justify-center mb-5 group-hover:bg-purple-600/30 group-hover:scale-110 group-hover:border-purple-500/50 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-purple-600/15 border border-purple-600/25 flex items-center justify-center mb-5 group-hover:bg-purple-600/30 group-hover:scale-110 group-hover:border-purple-500/50 transition-all duration-300 group-hover:animate-pulse">
                     <Icon size={22} className="text-purple-400" />
                   </div>
 
@@ -185,7 +232,7 @@ const Services = () => {
                     {service.tags.map((tag, j) => (
                       <span
                         key={j}
-                        className="px-2.5 py-1 bg-purple-900/30 border border-purple-800/30 text-purple-400 text-xs rounded-lg font-medium"
+                        className="px-2.5 py-1 bg-purple-900/30 border border-purple-800/30 text-purple-400 text-xs rounded-lg font-medium hover:bg-purple-800/40 transition-colors"
                       >
                         {tag}
                       </span>

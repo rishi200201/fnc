@@ -8,17 +8,30 @@ import Contact from './pages/Contact'
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white">
-      <Header />
-      <main>
+    <div className="relative min-h-screen text-white overflow-hidden">
+      <div
+        className="pointer-events-none absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://www.studentsxerox.com/images/01.webp')",
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center center',
+          backgroundAttachment: 'fixed',
+        }}
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#08030f]/90 via-[#0d0530]/80 to-[#05030c]/95" />
+      <div className="relative min-h-screen bg-black/30">
+        <Header />
+        <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
           <Route path="/enquiry" element={<Enquiry />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
-      </main>
-      <Footer />
+        </main>
+        <Footer />
+      </div>
     </div>
   )
 }

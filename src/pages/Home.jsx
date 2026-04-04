@@ -117,72 +117,71 @@ const pricingRates = [
 
 const Home = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-transparent">
       {/* ───────────── HERO ───────────── */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4">
-        {/* background blobs */}
-        <div className="absolute inset-0 bg-[#0a0a0f]">
-          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-purple-900/25 rounded-full blur-[120px]" />
-          <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-violet-800/15 rounded-full blur-[80px]" />
-        </div>
-
-        {/* subtle grid overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.025]"
-          style={{
-            backgroundImage:
-              'linear-gradient(to right, #8b5cf6 1px, transparent 1px), linear-gradient(to bottom, #8b5cf6 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
-          }}
-        />
-
-        <div className="relative z-10 max-w-5xl mx-auto text-center pt-20">
-          {/* status badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-purple-900/40 border border-purple-700/40 rounded-full text-purple-300 text-sm font-medium mb-8">
-            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            Now Open · Chennai's Premier Print Shop
-          </div>
-
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-black mb-6 leading-tight tracking-tight">
-            <span className="text-white">Welcome to </span>
-            <br className="sm:hidden" />
-            <span className="bg-gradient-to-r from-purple-400 via-violet-300 to-purple-500 bg-clip-text text-transparent">
-              Friend's Xerox Corner
-            </span>
-          </h1>
-
-          <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-            Your one-stop destination for{' '}
-            <span className="text-purple-400 font-medium">printing</span>,{' '}
-            <span className="text-purple-400 font-medium">xerox</span>,{' '}
-            <span className="text-purple-400 font-medium">lamination</span>, and all
-            document services. Fast, affordable, and always reliable.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              to="/enquiry"
-              className="group flex items-center gap-2.5 px-8 py-4 bg-gradient-to-r from-purple-600 to-violet-600 text-white font-bold rounded-xl hover:from-purple-500 hover:to-violet-500 transition-all duration-300 shadow-2xl shadow-purple-900/60 hover:shadow-purple-700/60 hover:-translate-y-0.5 text-sm"
-            >
-              Enquire Now
-              <ArrowRight size={17} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <a
-              href="https://wa.me/918148259753"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2.5 px-8 py-4 bg-white/[0.05] border border-white/15 text-white font-semibold rounded-xl hover:bg-white/10 hover:border-purple-500/50 transition-all duration-300 hover:-translate-y-0.5 text-sm"
-            >
-              <MessageCircle size={17} className="text-green-400" />
-              WhatsApp Us
-            </a>
-          </div>
-
-          {/* scroll hint */}
-          <div className="mt-16 flex justify-center">
-            <div className="flex flex-col items-center gap-1 opacity-30">
-              <div className="w-0.5 h-8 bg-gradient-to-b from-transparent to-purple-500 rounded-full" />
-              <span className="text-xs text-gray-500 tracking-widest uppercase">Scroll</span>
+      <section
+        className="relative overflow-hidden bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://www.studentsxerox.com/images/01.webp')",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#4c1d95]/10 to-black/95" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(124,58,237,0.18),_transparent_30%)]" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 py-24 lg:py-32">
+          <div className="grid gap-10 lg:grid-cols-[1.2fr_0.9fr] items-center">
+            <div className="space-y-6 text-white">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.24em] text-purple-200">
+                <span className="h-2.5 w-2.5 rounded-full bg-purple-400 animate-pulse" />
+                Student-friendly printing made easy
+              </span>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-black leading-tight tracking-tight">
+                Print, bind, and finish <span className="bg-gradient-to-r from-purple-400 via-violet-300 to-pink-400 bg-clip-text text-transparent">with premium speed</span>
+              </h1>
+              <p className="max-w-2xl text-base sm:text-lg text-gray-300 leading-relaxed">
+                Friend's Xerox Corner delivers fast, reliable printing and document services for students, professionals, and businesses across Chennai.
+              </p>
+              <blockquote className="border-l-4 border-purple-400 pl-4 italic text-purple-200 text-sm mb-6">
+                "Every page you print is a step closer to success."
+              </blockquote>
+              <div className="flex flex-col sm:flex-row items-center gap-4">
+                <Link
+                  to="/enquiry"
+                  className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-violet-600 text-white font-bold rounded-xl shadow-2xl shadow-purple-900/50 hover:from-purple-500 hover:to-violet-500 transition-all duration-300 hover:scale-105 hover:shadow-purple-700/60 overflow-hidden"
+                >
+                  <span className="absolute inset-0 bg-gradient-to-r from-purple-500 to-violet-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  <Printer size={17} className="relative z-10" />
+                  <span className="relative z-10">Enquire Now</span>
+                  <ArrowRight size={17} className="relative z-10 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <a
+                  href="https://wa.me/918148259753"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 border border-white/10 text-white rounded-xl hover:bg-white/15 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-green-500/20"
+                >
+                  <MessageCircle size={17} className="text-green-400 group-hover:animate-bounce" />
+                  <span>WhatsApp</span>
+                </a>
+              </div>
+            </div>
+            <div className="rounded-[2rem] border border-white/10 bg-black/60 p-8 shadow-2xl shadow-black/40 backdrop-blur-xl hover:bg-black/70 transition-all duration-300">
+              <p className="text-sm uppercase tracking-[0.3em] text-purple-300 mb-5">Fast support</p>
+              <div className="space-y-4">
+                <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 hover:bg-white/[0.08] transition-all duration-300 cursor-pointer">
+                  <p className="text-gray-400 text-sm">Same-day turnaround</p>
+                  <p className="mt-2 text-white text-lg font-semibold">Ready within hours</p>
+                </div>
+                <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 hover:bg-white/[0.08] transition-all duration-300 cursor-pointer">
+                  <p className="text-gray-400 text-sm">Student-friendly pricing</p>
+                  <p className="mt-2 text-white text-lg font-semibold">Affordable from ₹0.60/page</p>
+                </div>
+                <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 hover:bg-white/[0.08] transition-all duration-300 cursor-pointer">
+                  <p className="text-gray-400 text-sm">Full-service support</p>
+                  <p className="mt-2 text-white text-lg font-semibold">Print, scan, bind, deliver</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -226,9 +225,9 @@ const Home = () => {
               return (
                 <div
                   key={i}
-                  className="group p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:border-purple-600/40 hover:bg-purple-950/20 transition-all duration-300 cursor-default"
+                  className="group p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:border-purple-600/40 hover:bg-purple-950/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-900/20 cursor-pointer"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-purple-600/15 border border-purple-600/25 flex items-center justify-center mb-4 group-hover:bg-purple-600/30 group-hover:scale-110 group-hover:border-purple-500/50 transition-all duration-300">
+                  <div className="w-11 h-11 rounded-xl bg-purple-600/15 border border-purple-600/25 flex items-center justify-center mb-4 group-hover:bg-purple-600/30 group-hover:scale-110 group-hover:border-purple-500/50 transition-all duration-300 group-hover:animate-pulse">
                     <Icon size={20} className="text-purple-400" />
                   </div>
                   <h3 className="font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">
